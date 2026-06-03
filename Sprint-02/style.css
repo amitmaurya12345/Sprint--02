@@ -1,0 +1,730 @@
+/* Light Mode Colors (Default) */
+:root {
+    --bg-color: #f5f7fb;
+    --text-color: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --card-bg: #ffffff;
+    --nav-bg: rgba(255, 255, 255, 0.95);
+    --stat-card-bg: #ffffff;
+    --danger-color: #ef4444;
+    --success-color: #10b981;
+    --primary-color: #6366f1;
+    --primary-hover: #4f46e5;
+}
+
+/* Dark Mode Colors */
+body.dark-mode {
+    --bg-color: #0f172a;
+    --text-color: #f1f5f9;
+    --text-muted: #94a3b8;
+    --border-color: #1e293b;
+    --card-bg: #1e293b;
+    --nav-bg: rgba(15, 23, 42, 0.95);
+    --stat-card-bg: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Navigation */
+.nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--nav-bg);
+    backdrop-filter: blur(10px);
+    width: 100%;
+    height: 70px;
+    padding: 0 4vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.nav h2 {
+    background: linear-gradient(135deg, var(--primary-color), #8b5cf6);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.8rem;
+}
+
+.nav_part2 {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+}
+
+.nav_part2 h4 {
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.nav_part2 h4:hover {
+    color: var(--primary-color);
+}
+
+.nav_part2 button {
+    padding: 8px 20px;
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.nav_part2 button:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+.theme-btn {
+    background: transparent !important;
+    color: var(--primary-color) !important;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.menu {
+    display: none;
+    cursor: pointer;
+}
+
+/* Dashboard */
+.dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Stats Cards */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--stat-card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card span {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card h3 {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.stat-card:first-child .amount {
+    color: var(--primary-color);
+}
+
+.stat-card:nth-child(2) .amount {
+    color: var(--danger-color);
+}
+
+.stat-card:last-child .amount {
+    color: var(--success-color);
+}
+
+/* Input Sections */
+.input-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.primary-btn {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+}
+
+.primary-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+}
+
+/* Expenses List */
+.expenses-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+}
+
+.expenses-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.expenses-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.3s ease;
+}
+
+.expense-item:hover {
+    background: rgba(99, 102, 241, 0.05);
+}
+
+.expense-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.expense-info span {
+    color: var(--danger-color);
+}
+
+.expense-name {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.expense-amount {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    color: var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-muted);
+}
+
+.empty-state span {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+.footer_content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 2rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+.social_icon {
+    display: flex;
+    gap: 2rem;
+    margin: 1rem 0;
+}
+
+.social_icon a {
+    color: var(--text-muted);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social_icon a:hover {
+    color: var(--primary-color);
+}
+
+/* Add this to your style.css */
+.pdf-btn {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    color: white !important;
+    padding: 8px 20px !important;
+    border: none !important;
+    border-radius: 8px !important;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.pdf-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+}
+
+/* Chart Container Styles */
+.chart-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.chart-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.chart-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.chart-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+#expensePieChart {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Chart Legend */
+.chart-legend {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-label {
+    font-weight: 500;
+}
+
+.legend-value {
+    color: var(--text-muted);
+    margin-left: 0.25rem;
+}
+
+/* Responsive Chart */
+@media (max-width: 768px) {
+    .chart-wrapper {
+        max-width: 280px;
+    }
+    
+    .legend-item {
+        font-size: 0.8rem;
+    }
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .nav_part2 {
+        display: none;
+    }
+    
+    .menu {
+        display: block;
+    }
+    
+    .dashboard {
+        padding: 1rem;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card .amount {
+        font-size: 1.5rem;
+    }
+}
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ========================================== */
+/* MOBILE HAMBURGER MENU - ONLY FOR NAV */
+/* ========================================== */
+
+/* Default: Hamburger menu hidden on desktop */
+.menu {
+    display: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: rgb(103, 53, 53);
+}
+@media (min-width: 501px) {
+    .menu {
+        display: none !important;
+    }
+}
+
+/* Mobile View (max-width: 500px as per your code) */
+@media (max-width: 500px) {
+    /* Show hamburger icon on mobile */
+    .menu {
+        display: block;
+    }
+    
+    
+    /* Hide nav_part2 by default on mobile */
+    .nav .nav_part2 {
+        display: none;
+        position: fixed;
+        top: 60px;
+        right: 0;
+        width: 60%;
+        max-width: 250px;
+        height: auto;
+        background-color: var(--card-bg);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        gap: 15px;
+        border-radius: 0 0 0 10px;
+        box-shadow: -2px 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        border-left: 2px solid var(--border-color);
+        border-bottom: 2px solid var(--border-color);
+    }
+    
+    /* Show nav_part2 when active class is added */
+    .nav .nav_part2.active {
+        display: flex;
+    }
+    
+    /* Style nav items for mobile */
+    .nav .nav_part2 h4 {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+    
+    .nav .nav_part2 button {
+        width: 100%;
+        padding: 8px 15px;
+        margin: 5px 0;
+        font-size: 14px;
+    }
+    
+    /* Theme button stays on navbar */
+    .theme-btn {
+        margin-left: auto;
+        margin-right: 5px;
+    }
+    
+    /* Adjust nav title size */
+    .nav h2 {
+        font-size: 18px;
+    }
+}
+/* ========================================== */
+/* CURRENCY SELECTOR & ALERT BANNER */
+/* ========================================== */
+
+.currency-alert-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.currency-selector {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.currency-selector label {
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.currency-selector select {
+    padding: 8px 12px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.currency-selector select:hover {
+    border-color: var(--primary-color);
+}
+
+.exchange-rate-info {
+    font-size: 12px;
+    color: var(--text-muted);
+    background: var(--bg-color);
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* Alert Banner Styles */
+.alert-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    animation: slideDown 0.5s ease;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.alert-icon {
+    font-size: 24px;
+    margin-right: 12px;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-content strong {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.alert-content p {
+    font-size: 14px;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.alert-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.alert-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* Budget Progress Bar */
+.budget-progress {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 30px;
+    background-color: var(--border-color);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), #8b5cf6);
+    border-radius: 15px;
+    transition: width 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 0.875rem;
+    font-weight: bold;
+}
+
+.progress-fill.warning {
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+}
+
+.progress-fill.danger {
+    background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* Blinking animation for critical balance */
+@keyframes blinkRed {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.critical-balance {
+    animation: blinkRed 1s ease-in-out infinite;
+    font-weight: bold;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

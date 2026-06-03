@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cash-Flow | Expense Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <!-- Navigation -->
+      <div class="nav">
+        <h2>💰 Cash-Flow</h2>
+        <div class="nav_part2">
+          <h4>Dashboard</h4>
+          <h4>Reports</h4>
+          <h4>Settings</h4>
+          <button id="downloadPDFBtn" class="pdf-btn">📄 Download PDF</button>
+          <button id="resetBtn">Reset All</button>
+        </div>
+        <button id="theme-toggle" class="theme-btn">
+          <span class="material-symbols-outlined" id="theme-icon">dark_mode</span>
+        </button>
+        <span class="material-symbols-outlined menu">menu</span>
+      </div>
+
+      <!-- Main Dashboard -->
+      <div class="dashboard">
+        <!-- ✅ ADD THIS: Currency Selector & Alert Banner -->
+        <div class="currency-alert-container">
+          <div class="currency-selector">
+            <label>💱 Display Currency:</label>
+            <select id="currencySelector">
+              <option value="INR">🇮🇳 Indian Rupee (INR)</option>
+              <option value="USD">🇺🇸 US Dollar (USD)</option>
+              <option value="EUR">🇪🇺 Euro (EUR)</option>
+              <option value="GBP">🇬🇧 British Pound (GBP)</option>
+              <option value="JPY">🇯🇵 Japanese Yen (JPY)</option>
+            </select>
+            <span id="exchangeRateInfo" class="exchange-rate-info"></span>
+          </div>
+        </div>
+
+        <!-- ✅ ADD THIS: Alert Banner -->
+        <div id="alertBanner" class="alert-banner" style="display: none;">
+          <span class="alert-icon">⚠️</span>
+          <div class="alert-content">
+            <strong>Low Balance Alert!</strong>
+            <p id="alertMessage">Your remaining balance is below 10% of your salary!</p>
+          </div>
+          <button class="alert-close" onclick="closeAlert()">×</button>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-container">
+          <div class="stat-card">
+            <span class="material-symbols-outlined">account_balance_wallet</span>
+            <h3>Total Salary</h3>
+            <p class="amount" id="totalSalary">₹0</p>
+          </div>
+          <div class="stat-card">
+            <span class="material-symbols-outlined">shopping_cart</span>
+            <h3>Total Expenses</h3>
+            <p class="amount" id="totalExpenses">₹0</p>
+          </div>
+          <div class="stat-card">
+            <span class="material-symbols-outlined">analytics</span>
+            <h3>Remaining Balance</h3>
+            <p class="amount" id="remainingBalance">₹0</p>
+          </div>
+        </div>
+
+        <!-- ✅ ADD THIS: Budget Progress Bar -->
+        <div class="budget-progress">
+          <div class="progress-label">
+            <span>Budget Used</span>
+            <span id="budgetPercentage">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+          </div>
+        </div>
+
+        <!-- ✅ ADD THIS: Pie Chart Container -->
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3>📊 Expense Distribution</h3>
+            <p>Remaining Balance vs Total Expenses</p>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="expensePieChart"></canvas>
+          </div>
+          <div class="chart-legend" id="chartLegend"></div>
+        </div>
+
+        <!-- Salary Input Section -->
+        <div class="input-section">
+          <h2>📥 Set Your Salary</h2>
+          <div class="form-group">
+            <label>Total Salary (₹)</label>
+            <input type="number" id="salaryInput" placeholder="Enter your monthly salary" />
+            <button id="setSalaryBtn" class="primary-btn">Set Salary</button>
+          </div>
+          <div id="salaryError" class="error-message"></div>
+        </div>
+
+        <!-- Expense Input Section -->
+        <div class="input-section">
+          <h2>➕ Add Expense</h2>
+          <div class="form-group">
+            <label>Expense Name</label>
+            <input type="text" id="expenseName" placeholder="e.g., Groceries, Rent, Shopping" />
+          </div>
+          <div class="form-group">
+            <label>Expense Amount (₹)</label>
+            <input type="number" id="expenseAmount" placeholder="Enter amount" />
+          </div>
+          <button id="addExpenseBtn" class="primary-btn">Add Expense</button>
+          <div id="expenseError" class="error-message"></div>
+        </div>
+
+        <!-- Expenses List -->
+        <div class="expenses-section">
+          <h2>📋 Expense History</h2>
+          <div id="expensesList" class="expenses-list">
+            <div class="empty-state">
+              <span class="material-symbols-outlined">receipt_long</span>
+              <p>No expenses added yet</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer_content">
+          <h2>Cash-Flow Tracker</h2>
+          <p>© 2026 <span>Cash-Flow</span>. Track your expenses wisely!</p>
+        </div>
+      </footer>
+    </div>
+    <script src="script.js"></script>
+    <!-- jsPDF and html2canvas for PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Chart.js for Data Visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </body>
+</html>
