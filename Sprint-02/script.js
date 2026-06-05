@@ -361,10 +361,12 @@ function setSalary() {
         salaryInput.value = '';
         return;
     }
+    
     state.salary = amount;
     updateUI();
     salaryInput.value = '';
     showSuccessMessage('✅ Salary updated!');
+    
 }
 
 function addExpense() {
